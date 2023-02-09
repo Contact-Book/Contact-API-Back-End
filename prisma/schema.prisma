@@ -15,7 +15,7 @@ model User {
   name         String
   email        String    @unique
   password     String
-  phone_number Int
+  phone_number String
   contacts     Contact[]
   is_active    Boolean?  @default(true)
   last_login   DateTime? 
@@ -30,7 +30,7 @@ model Contact {
   id           String    @id @default(uuid())
   name         String
   email        String    @unique  
-  phone_number Int   
+  phone_number String   
   is_active    Boolean?  @default(true)  
   reference     User     @relation(fields: [reference_id], references: [id])
   reference_id  String
