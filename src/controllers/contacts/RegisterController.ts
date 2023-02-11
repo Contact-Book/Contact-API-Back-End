@@ -1,13 +1,16 @@
 import { Request, Response } from 'express';
 import { AppError } from '../../err/appError';
+import { ICustomRequest } from '../../middlewares/isAuthenticated';
 import registerContactService from '../../services/contacts/RegisterService';
 
-const registerContactsController = async (req: Request, res: Response) => {
+const registerContactsController = async (
+  req: ICustomRequest,
+  res: Response
+) => {
   try {
-    const reference_id = req.params.id;
     const contactData = {
       ...req.body,
-      reference_id: reference_id,
+      reference_id: req.user,
     };
 
     const newContact = await registerContactService(contactData);

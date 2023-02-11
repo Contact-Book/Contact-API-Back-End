@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { AppError } from '../../err/appError';
 import prismaClient from '../../prisma';
 
-const validateUserEmail = async (
+const validateContactEmail = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -13,17 +13,17 @@ const validateUserEmail = async (
     throw new AppError(401, 'Field email is required');
   }
 
-  const userAlreadyExists = await prismaClient.user.findFirst({
+  const verifing = await prismaClient.contact.findFirst({
     where: {
       email: email,
     },
   });
 
-  if (userAlreadyExists) {
+  if (verifing) {
     throw new AppError(409, 'This email is already in use');
   }
 
   next();
 };
 
-export default validateUserEmail;
+export default validateContactEmail;

@@ -18,7 +18,6 @@ const registerService = async (userData: IUserRequest) => {
     select: {
       name: true,
       email: true,
-      password: true,
       phone_number: true,
     },
   });

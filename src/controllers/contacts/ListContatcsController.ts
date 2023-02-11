@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { AppError } from '../../err/appError';
-import listContactsService from '../../services/contacts/ListUsersService';
+import listContactsService from '../../services/contacts/ListContactsService';
 
 const listContactsController = async (req: Request, res: Response) => {
   try {

@@ -36,3 +36,24 @@ export interface IUserRequest {
   password: string;
   phone_number: string;
 }
+
+export interface IUserUpdate {
+  name?: string;
+  email?: string;
+  password?: string;
+  phone_number?: string;
+  user_id?: string;
+  is_active?: boolean;
+}
+
+export interface IContactUpdate {
+  name?: string;
+  email?: string;
+  phone_number?: string;
+  contact_id?: string;
+}
+
+export interface IUserLogin {
+  email: string;
+  password: string;
+}

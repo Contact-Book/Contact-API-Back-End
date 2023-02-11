@@ -12,7 +12,6 @@ const registerController = async (req: Request, res: Response) => {
     if (error instanceof AppError) {
       return res.status(error.statusCode).json({ error: error.message });
     }
-    console.error(error);
   }
 };
 
